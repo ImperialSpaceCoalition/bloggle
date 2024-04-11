@@ -1,9 +1,12 @@
-// Dependencies
 const express = require('express');
 const session = require('express-session');
 const exphbs = require('express-handlebars');
 const sequelize = require('./config/connection');
-const routes = require('./controllers')
+
+// Import route files
+const homeRoutes = require('./controllers/homeRoutes');
+const apiRoutes = require('./controllers/apiRoutes');
+const dashboardRoutes = require('./controllers/dashboardRoutes');
 
 const path = require('path');
 
@@ -32,8 +35,10 @@ app.use(session(sess));
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 
-// Routes
-app.use(routes);
+// Use route files
+app.use('/', homeRoutes);
+app.use('/api', apiRoutes);
+app.use('/dashboard', dashboardRoutes);
 
 // Sync database and start server
 sequelize.sync({ force: false }).then(() => {
