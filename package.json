@@ -1,0 +1,25 @@
+{
+    "name": "cms-blog-site",
+    "version": "1.0.0",
+    "description": "A CMS-style blog site",
+    "main": "server.js",
+    "scripts": {
+        "start": "node server.js"
+    },
+    "keywords": [
+        "CMS",
+        "blog",
+        "site"
+    ],
+    "author": "Your Name",
+    "license": "ISC",
+    "dependencies": {
+        "bcrypt": "^5.0.1",
+        "dotenv": "^10.0.0",
+        "express": "^4.17.1",
+        "express-handlebars": "^5.3.2",
+        "express-session": "^1.17.2",
+        "mysql2": "^2.3.0",
+        "sequelize": "^6.37.2"
+    }
+}
